@@ -2,7 +2,7 @@ package com.example.quizapp2020ds.ui.quiz;
 
 
 
-import android.util.Log;
+
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 
 public class QuizViewModel extends ViewModel {
@@ -106,11 +106,6 @@ public QuizViewModel() {
 
 
 
-  public void onClick(){
-  currentQuestionPosition.setValue(currentQuestionPosition.getValue()+1);
-
-
-  }
 
 
 
