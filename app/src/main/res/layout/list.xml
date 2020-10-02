@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handlers"
+            type="com.example.quizapp2020ds.ui.quiz.OnButtonAnswerClick" />
+
+        <variable
+            name="model"
+            type="com.example.quizapp2020ds.ui.quiz.Question" />
+
+    </data>
+
+
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quistion"
+        android:text="@{model.question}"
+        android:textAlignment="center"
+       android:layout_marginLeft="180dp"
+
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+android:visibility="@{model.arrayAnswer.length == 2 ? View.VISIBLE: View.GONE}"
+        android:id="@+id/booleanContainer"
+
+        >
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background1"
+            android:id="@+id/trueOrfalse1"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="30dp"
+            android:text='@{model.arrayAnswer[0]!=null?model.arrayAnswer[0]:""}'
+            android:onClick="@{(theView ) -> handlers.onClick(theView,model.id, 0)}"
+android:hint="Нет"
+
+            />
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background1"
+            android:id="@+id/trueOrfalse2"
+            android:layout_marginStart="68dp"
+            android:text='@{model.arrayAnswer[1]!=null?model.arrayAnswer[1]:""}'
+            android:onClick="@{(theView ) -> handlers.onClick(theView,model.id, 1)}"
+            android:hint="Да"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/multiplyContainer"
+        android:layout_marginTop="22dp"
+        android:visibility="@{model.arrayAnswer.length == 4 ? View.VISIBLE: View.GONE}"
+
+
+       >
+
+
+        <Button
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+
+
+            android:background="@drawable/background1"
+            android:textColor="@color/blue"
+            android:id="@+id/btn1"
+            android:textAlignment="center"
+            android:text='@{model.arrayAnswer[0]!=null?model.arrayAnswer[0]:""}'
+            android:onClick="@{(theView ) -> handlers.onClick(theView,model.id, 0)}"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:background="@drawable/background1"
+
+            android:text='@{model.arrayAnswer[1]!=null?model.arrayAnswer[1]:""}'
+            android:textColor="@color/blue"
+            android:textAllCaps="false"
+            android:id="@+id/btn2"
+            android:onClick="@{(theView) ->handlers.onClick(theView, model.id, 1)}"
+
+
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+
+            android:background="@drawable/background1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text='@{model.arrayAnswer[2]!=null?model.arrayAnswer[2]:""}'
+            android:textColor="@color/blue"
+            android:textAllCaps="false"
+            android:id="@+id/btn3"
+            android:onClick="@{(theView) ->handlers.onClick(theView, model.id, 2)}"
+
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:background="@drawable/background1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:text='@{model.arrayAnswer[3]!=null?model.arrayAnswer[3]:""}'
+            android:id="@+id/btn4"
+            android:onClick="@{(theView) ->handlers.onClick(theView, model.id, 3)}"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </layout>
