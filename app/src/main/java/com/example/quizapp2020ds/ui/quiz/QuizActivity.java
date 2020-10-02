@@ -28,7 +28,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 
+import com.example.quizapp2020ds.MainActivity;
 import com.example.quizapp2020ds.R;
+import com.example.quizapp2020ds.ui.main.MainFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +82,7 @@ ImageView BackImage;
         adapter = new QuizAdapter(this);
 
         recyclerView.setHasFixedSize(true);
-observeForever();
+
 BackImage=findViewById(R.id.Vimage);
 
 
@@ -102,9 +104,9 @@ BackImage=findViewById(R.id.Vimage);
                 progressbar.setMax(amount);
                 recyclerView.smoothScrollToPosition(integer);
 
-
+       progressbar.setProgress(integer);
                 progress.setText(String.valueOf(integer)+"/"+String.valueOf(integer));
-
+                viewModel.currentQuestionPosition.observeForever(quizModels -> adapter.ChangeAdapter(list));
             }
         });
 
@@ -127,13 +129,28 @@ BackImage=findViewById(R.id.Vimage);
 
 
 
+try {
+    BackImage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {try {
 
-BackImage.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        viewModel.onBackpessed();
-    }
-});
+
+
+            viewModel.onBackpessed();
+        }catch (NullPointerException BackIgnor){
+
+        }
+
+
+
+        }
+    });
+}catch (Exception e){
+
+
+
+}
+
 
 
         skip.setOnClickListener(new View.OnClickListener() {
@@ -155,26 +172,8 @@ BackImage.setOnClickListener(new View.OnClickListener() {
 
 
 
-    private void observeForever() {
-        viewModel.currentQuestionPosition.observeForever(quizModels -> adapter.ChangeAdapter(list));
-        viewModel.currentQuestionPosition.observeForever(integer -> {
-            new CountDownTimer(1000, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
-
-                @Override
-                public void onFinish() {
-                    recyclerView.scrollToPosition(integer);
-                    progressbar.setProgress(integer);
 
 
-                }
-
-            }.start();
-        });
-    }
 
     public static void start(Context context, int amount, int category, String difficultValue) {
 

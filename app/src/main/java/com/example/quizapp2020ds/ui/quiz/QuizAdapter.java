@@ -1,15 +1,15 @@
 package com.example.quizapp2020ds.ui.quiz;
 
 import android.annotation.SuppressLint;
-import android.os.Build;
+
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizapp2020ds.R;
