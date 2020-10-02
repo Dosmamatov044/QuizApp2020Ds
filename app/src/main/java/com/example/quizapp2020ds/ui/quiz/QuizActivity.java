@@ -105,7 +105,7 @@ BackImage=findViewById(R.id.Vimage);
                 recyclerView.smoothScrollToPosition(integer);
 
        progressbar.setProgress(integer);
-                progress.setText(String.valueOf(integer)+"/"+String.valueOf(integer));
+                progress.setText(String.valueOf(integer)+"/"+String.valueOf(amount));
                 viewModel.currentQuestionPosition.observeForever(quizModels -> adapter.ChangeAdapter(list));
             }
         });
@@ -216,8 +216,13 @@ try {
 
     @Override
     public void onClick(View view, int PositionQuestion, int positionAnswer) {
-
-
         viewModel.onSkipClick();
+
+
+
+
+
+
+        }
+
     }
-}

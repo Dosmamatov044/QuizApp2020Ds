@@ -1,5 +1,7 @@
 package com.example.quizapp2020ds.ui.quiz;
 
+import android.graphics.Color;
+
 import androidx.annotation.NonNull;
 
 public class Question {
@@ -12,6 +14,8 @@ private  int id;
 String [] ArrayAnswer;
 String correctAnswers;
 Type type;
+String color;
+
 
     public Question(@org.jetbrains.annotations.NotNull String [] ArrayAnswer, String question, String correctAnswers, Type type) {
         this.question = question;
@@ -22,6 +26,13 @@ Type type;
 
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public String getQuestion() {
         return question;
